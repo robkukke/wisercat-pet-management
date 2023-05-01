@@ -4,7 +4,7 @@
 
 <div class="row justify-content-md-center">
   <div class="mb-5 col-md-auto">
-    <a routerLink="/addpet" class="btn btn-primary">Add Pet</a>
+    <a routerLink="/add" class="btn btn-primary">Add Pet</a>
   </div>
   <table class="table">
     <thead>
@@ -27,7 +27,9 @@
         <td class="align-middle">{{ pet.furColor }}</td>
         <td class="align-middle">{{ pet.country }}</td>
         <td class="align-middle">
-          <a routerLink="/editpet" class="btn btn-primary">Edit pet</a>
+          <a [routerLink]="['/pets', pet.id]" class="btn btn-primary"
+            >Edit pet</a
+          >
         </td>
       </tr>
     </tbody>
