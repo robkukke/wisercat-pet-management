@@ -1,0 +1,8 @@
+CREATE TABLE pet (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name VARCHAR(100),
+  code VARCHAR(100),
+  type VARCHAR(100),
+  fur_color VARCHAR(100),
+  country VARCHAR(100)
+);
