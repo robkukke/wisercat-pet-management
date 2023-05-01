@@ -51,12 +51,10 @@
         required
         #types="ngModel"
       >
-        <option [ngValue]="undefined" selected>Choose...</option>
-        <option value="1">Cat</option>
-        <option value="2">Dog</option>
-        <option value="3">Horse</option>
-        <option value="4">Rabbit</option>
-        <option value="5">Parrot</option>
+        <option [ngValue]="undefined" disabled selected>Choose...</option>
+        <option *ngFor="let petType of petTypes" [ngValue]="petType.name">
+          {{ petType.name }}
+        </option>
       </select>
     </div>
 
@@ -70,12 +68,13 @@
         required
         #colors="ngModel"
       >
-        <option [ngValue]="undefined" selected>Choose...</option>
-        <option value="1">Black</option>
-        <option value="2">White</option>
-        <option value="3">Brown</option>
-        <option value="4">Yellow</option>
-        <option value="5">Blue</option>
+        <option [ngValue]="undefined" disabled selected>Choose...</option>
+        <option
+          *ngFor="let petFurColor of petFurColors"
+          [ngValue]="petFurColor.name"
+        >
+          {{ petFurColor.name }}
+        </option>
       </select>
     </div>
 
@@ -89,13 +88,13 @@
         required
         #countries="ngModel"
       >
-        <option [ngValue]="undefined" selected>Choose...</option>
-        <option value="1">Estonia</option>
-        <option value="2">Latvia</option>
-        <option value="3">Lithuania</option>
-        <option value="4">Finland</option>
-        <option value="5">Sweden</option>
-        <option value="6">Norway</option>
+        <option [ngValue]="undefined" disabled selected>Choose...</option>
+        <option
+          *ngFor="let petCountry of petCountries"
+          [ngValue]="petCountry.name"
+        >
+          {{ petCountry.name }}
+        </option>
       </select>
     </div>
 

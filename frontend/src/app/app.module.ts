@@ -8,11 +8,14 @@ import { AppComponent } from './app.component';
 import { PetsTableComponent } from './components/pets-table/pets-table.component';
 import { PetAddComponent } from './components/pet-add/pet-add.component';
 import { PetService } from './services/pet.service';
+import { TypeService } from './services/type.service';
+import { FurColorService } from './services/furcolor.service';
+import { CountryService } from './services/country.service';
 
 @NgModule({
   declarations: [AppComponent, PetsTableComponent, PetAddComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [PetService],
+  providers: [PetService, TypeService, FurColorService, CountryService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

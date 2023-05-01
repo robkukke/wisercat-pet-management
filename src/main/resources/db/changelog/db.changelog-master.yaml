@@ -1,3 +1,15 @@
 databaseChangeLog:
   - include:
-      file: classpath:/db/changelog/changes/001-initial-schema.sql
+      file: classpath:/db/changelog/changes/001-pet-schema.sql
+  - include:
+      file: classpath:/db/changelog/changes/002-type-schema.sql
+  - include:
+      file: classpath:/db/changelog/changes/003-type-values.sql
+  - include:
+      file: classpath:/db/changelog/changes/004-fur_color-schema.sql
+  - include:
+      file: classpath:/db/changelog/changes/005-fur_color-values.sql
+  - include:
+      file: classpath:/db/changelog/changes/006-country-schema.sql
+  - include:
+      file: classpath:/db/changelog/changes/007-country-values.sql
