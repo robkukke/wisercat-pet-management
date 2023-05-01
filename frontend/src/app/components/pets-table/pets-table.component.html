@@ -1,0 +1,35 @@
+<div class="py-5 text-center">
+  <h2>Pets</h2>
+</div>
+
+<div class="row justify-content-md-center">
+  <div class="mb-5 col-md-auto">
+    <a routerLink="/addpet" class="btn btn-primary">Add Pet</a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Type</th>
+        <th scope="col">Fur color</th>
+        <th scope="col">Country</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pet of pets; let i = index">
+        <th scope="row" class="align-middle">{{ i + 1 }}</th>
+        <td class="align-middle">{{ pet.name }}</td>
+        <td class="align-middle">{{ pet.code }}</td>
+        <td class="align-middle">{{ pet.type }}</td>
+        <td class="align-middle">{{ pet.furColor }}</td>
+        <td class="align-middle">{{ pet.country }}</td>
+        <td class="align-middle">
+          <a routerLink="/editpet" class="btn btn-primary">Edit pet</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

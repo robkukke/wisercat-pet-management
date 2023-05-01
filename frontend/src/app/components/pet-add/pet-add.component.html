@@ -1,0 +1,106 @@
+<div class="py-5 text-center">
+  <h2>Add a new pet</h2>
+</div>
+
+<div class="col-md-12 order-md-1">
+  <form
+    class="needs-validation"
+    novalidate
+    (ngSubmit)="onSubmit()"
+    #petAdd="ngForm"
+  >
+    <div class="mb-3 form-group">
+      <label class="mb-2" for="name">Name</label>
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="pet.name"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Name"
+          required
+          #name="ngModel"
+        />
+      </div>
+    </div>
+
+    <div class="mb-3 form-group">
+      <label class="mb-2" for="code">Code</label>
+      <div class="input-group">
+        <input
+          type="text"
+          [(ngModel)]="pet.code"
+          class="form-control"
+          id="code"
+          name="code"
+          placeholder="Code"
+          required
+          #code="ngModel"
+        />
+      </div>
+    </div>
+
+    <div class="mb-3 form-group">
+      <label class="mb-2" for="types">Type</label>
+      <select
+        [(ngModel)]="pet.type"
+        class="form-select d-block w-100"
+        id="types"
+        name="types"
+        required
+        #types="ngModel"
+      >
+        <option [ngValue]="undefined" selected>Choose...</option>
+        <option value="1">Cat</option>
+        <option value="2">Dog</option>
+        <option value="3">Horse</option>
+        <option value="4">Rabbit</option>
+        <option value="5">Parrot</option>
+      </select>
+    </div>
+
+    <div class="mb-3 form-group">
+      <label class="mb-2" for="colors">Fur color</label>
+      <select
+        [(ngModel)]="pet.furColor"
+        class="form-select d-block w-100"
+        id="colors"
+        name="colors"
+        required
+        #colors="ngModel"
+      >
+        <option [ngValue]="undefined" selected>Choose...</option>
+        <option value="1">Black</option>
+        <option value="2">White</option>
+        <option value="3">Brown</option>
+        <option value="4">Yellow</option>
+        <option value="5">Blue</option>
+      </select>
+    </div>
+
+    <div class="mb-3 form-group">
+      <label class="mb-2" for="countries">Country of origin</label>
+      <select
+        [(ngModel)]="pet.country"
+        class="form-select d-block w-100"
+        id="countries"
+        name="countries"
+        required
+        #countries="ngModel"
+      >
+        <option [ngValue]="undefined" selected>Choose...</option>
+        <option value="1">Estonia</option>
+        <option value="2">Latvia</option>
+        <option value="3">Lithuania</option>
+        <option value="4">Finland</option>
+        <option value="5">Sweden</option>
+        <option value="6">Norway</option>
+      </select>
+    </div>
+
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg" type="submit">Add Pet</button>
+    </div>
+  </form>
+</div>
