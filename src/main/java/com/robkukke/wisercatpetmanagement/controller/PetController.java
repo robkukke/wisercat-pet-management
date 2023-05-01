@@ -22,6 +22,26 @@ public class PetController {
         return new ResponseEntity<>(pets, HttpStatus.OK);
     }
 
+    @GetMapping("/pets/{id}")
+    public ResponseEntity<Pet> getPetById(@PathVariable(value = "id") Long petId) {
+        Pet pet = petRepository.findById(petId).orElse(null);
+        return new ResponseEntity(pet, HttpStatus.OK);
+    }
+
+    @PutMapping("/pets/{id}")
+    public ResponseEntity<Pet> updatePet(@PathVariable(value = "id") Long petId, @RequestBody Pet petDetails) {
+        Pet pet = petRepository.findById(petId).orElse(null);
+
+        pet.setName(petDetails.getName());
+        pet.setCode(petDetails.getCode());
+        pet.setType(petDetails.getType());
+        pet.setFurColor(petDetails.getFurColor());
+        pet.setCountry(petDetails.getCountry());
+
+        final Pet updatedPet = petRepository.save(pet);
+        return new ResponseEntity(updatedPet, HttpStatus.OK);
+    }
+
     @PostMapping("/pets")
     void addPet(@RequestBody Pet pet) {
         petRepository.save(pet);
