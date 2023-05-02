@@ -9,13 +9,20 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col" *ngFor="let header of headers">{{ header }}</th>
+        <th
+          scope="col"
+          role="button"
+          *ngFor="let header of headers"
+          (click)="sort(header)"
+        >
+          {{ header === "ID" ? "#" : header }}
+        </th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pet of pets; let i = index">
-        <th scope="row" class="align-middle">{{ i + 1 }}</th>
+      <tr *ngFor="let pet of petsToShow">
+        <th scope="row" class="align-middle">{{ pets.indexOf(pet) + 1 }}</th>
         <td class="align-middle">{{ pet.name }}</td>
         <td class="align-middle">{{ pet.code }}</td>
         <td class="align-middle">{{ pet.type }}</td>
