@@ -9,6 +9,7 @@ import { PetService } from '../../services/pet.service';
 })
 export class PetsTableComponent implements OnInit {
   pets!: Pet[];
+  headers = ['#', 'Name', 'Code', 'Type', 'Fur color', 'Country'];
 
   constructor(private petService: PetService) {}
 
