@@ -11,17 +11,20 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
+  // Handle log in
   login(username: string, password: string) {
     const url = this.baseUrl + '/login';
     const body = { username, password };
     return this.http.post(url, body);
   }
 
+  // Handle log out
   logout() {
     const url = this.baseUrl + '/logout';
     return this.http.post(url, {});
   }
 
+  // Handle log in check
   isLoggedIn(): boolean {
     return localStorage.getItem('currentUser') !== null;
   }

@@ -21,23 +21,27 @@ public class PetController {
     @Autowired
     private PetRepository petRepository;
 
+    // Handle logged in user's pets fetch from database
     @GetMapping("/pets")
     public ResponseEntity<List<Pet>> getPets(@RequestParam(value = "username", required = true) String username) {
         List<Pet> pets = petRepository.findByUsername(username);
         return ResponseEntity.ok().body(pets);
     }
 
+    // Handle individual pet fetch from database
     @GetMapping("/pets/{id}")
     public ResponseEntity<Pet> getPetById(@PathVariable(value = "id") Long petId) {
         Pet pet = petRepository.findById(petId).orElse(null);
         return ResponseEntity.ok().body(pet);
     }
 
+    // Handle pet adding to database
     @PostMapping("/pets")
     void addPet(@Valid @RequestBody Pet pet) {
         petRepository.save(pet);
     }
 
+    // Handle pet editing
     @PutMapping("/pets/{id}")
     public ResponseEntity<Pet> updatePet(@PathVariable(value = "id") Long petId, @RequestBody Pet petDetails) {
         Pet pet = petRepository.findById(petId).orElse(null);
@@ -50,6 +54,7 @@ public class PetController {
         return ResponseEntity.ok().body(updatedPet);
     }
 
+    // Handle server-side pet add/edit form validation
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {

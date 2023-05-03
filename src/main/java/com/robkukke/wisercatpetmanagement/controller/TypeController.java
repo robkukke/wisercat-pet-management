@@ -17,6 +17,7 @@ public class TypeController {
     @Autowired
     private TypeRepository typeRepository;
 
+    // Handle types fetch from database
     @GetMapping("/types")
     public ResponseEntity<List<Type>> getTypes() {
         List<Type> types = typeRepository.findAll();

@@ -3,12 +3,14 @@
 </div>
 
 <div class="col-md-12 order-md-1">
+  <!-- Login form -->
   <form
     #login="ngForm"
     (ngSubmit)="onSubmit()"
     class="needs-validation"
     novalidate
   >
+    <!-- Username field -->
     <div class="mb-3 form-group">
       <label class="mb-2" for="usernameInput"
         >Username <span class="text-danger">*</span></label
@@ -27,6 +29,7 @@
       </div>
     </div>
 
+    <!-- Username error field -->
     <div
       *ngIf="
         usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)
@@ -38,6 +41,7 @@
       </div>
     </div>
 
+    <!-- Password field -->
     <div class="mb-3 form-group">
       <label class="mb-2" for="passwordInput"
         >Password <span class="text-danger">*</span></label
@@ -56,6 +60,7 @@
       </div>
     </div>
 
+    <!-- Password error field -->
     <div
       *ngIf="
         passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)
@@ -67,10 +72,12 @@
       </div>
     </div>
 
+    <!-- Login verification error field -->
     <div *ngIf="loginFailed" class="alert alert-danger">
       Invalid username or password.
     </div>
 
+    <!-- Login form submit -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
       <button
         [disabled]="!login.form.valid"

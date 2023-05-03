@@ -13,6 +13,7 @@ export class FurColorService {
   constructor(private http: HttpClient) {
   }
 
+  // Handle fur colors fetch from database
   public getFurColors(): Observable<FurColor[]> {
     const url = this.baseUrl + '/furcolors';
     return this.http.get<FurColor[]>(url);

@@ -3,12 +3,14 @@
 </div>
 
 <div class="col-md-12 order-md-1">
+  <!-- Pet edit form -->
   <form
     #petEdit="ngForm"
     (ngSubmit)="onSubmit()"
     class="needs-validation"
     novalidate
   >
+    <!-- Name field -->
     <div class="mb-3 form-group">
       <label class="mb-2" for="name"
         >Name <span class="text-danger">*</span></label
@@ -28,6 +30,7 @@
       </div>
     </div>
 
+    <!-- Name error field -->
     <div
       *ngIf="name.invalid && (name.dirty || name.touched)"
       class="alert alert-danger"
@@ -38,6 +41,7 @@
       </div>
     </div>
 
+    <!-- Code field -->
     <div class="mb-3 form-group">
       <label class="mb-2" for="code"
         >Code <span class="text-danger">*</span></label
@@ -57,6 +61,7 @@
       </div>
     </div>
 
+    <!-- Code error field -->
     <div
       *ngIf="code.invalid && (code.dirty || code.touched)"
       class="alert alert-danger"
@@ -67,6 +72,7 @@
       </div>
     </div>
 
+    <!-- Type field -->
     <div class="mb-3 form-group">
       <label class="mb-2" for="types"
         >Type <span class="text-danger">*</span></label
@@ -86,6 +92,7 @@
       </select>
     </div>
 
+    <!-- Type error field -->
     <div
       *ngIf="types.invalid && (types.dirty || types.touched)"
       class="alert alert-danger"
@@ -93,6 +100,7 @@
       <div *ngIf="types.errors?.['required']">Type is required.</div>
     </div>
 
+    <!-- Fur color field -->
     <div class="mb-3 form-group">
       <label class="mb-2" for="colors"
         >Fur color <span class="text-danger">*</span></label
@@ -115,6 +123,7 @@
       </select>
     </div>
 
+    <!-- Fur color error field -->
     <div
       *ngIf="colors.invalid && (colors.dirty || colors.touched)"
       class="alert alert-danger"
@@ -122,6 +131,7 @@
       <div *ngIf="colors.errors?.['required']">Fur color is required.</div>
     </div>
 
+    <!-- Country of origin field -->
     <div class="mb-3 form-group">
       <label class="mb-2" for="countries"
         >Country of origin <span class="text-danger">*</span></label
@@ -144,6 +154,7 @@
       </select>
     </div>
 
+    <!-- Country of origin error field -->
     <div
       *ngIf="countries.invalid && (countries.dirty || countries.touched)"
       class="alert alert-danger"
@@ -153,6 +164,7 @@
       </div>
     </div>
 
+    <!-- Back button and edit pet form submit -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
       <a class="btn btn-secondary btn-lg" routerLink="/pets">Back</a>
       <button
