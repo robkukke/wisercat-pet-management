@@ -44,9 +44,13 @@ export class PetEditComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
+    const currentUser = localStorage.getItem('currentUser') ?? '';
 
     this.petService.getPet(this.id).subscribe((data) => {
       this.pet = data;
+      if (this.pet.username !== currentUser) {
+        this.router.navigate(['/pets']);
+      }
     });
 
     this.typeService.getTypes().subscribe((data) => {

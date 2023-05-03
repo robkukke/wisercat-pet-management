@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pet } from '../../models/pet';
 import { PetService } from '../../services/pet.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-pets-table',
@@ -12,8 +14,15 @@ export class PetsTableComponent implements OnInit {
   petsToShow!: Pet[];
   headers = ['ID', 'Name', 'Code', 'Type', 'Fur color', 'Country'];
   sortOrder = { column: '', ascending: true };
+  username = '';
 
-  constructor(private petService: PetService) {}
+  constructor(
+    private router: Router,
+    private petService: PetService,
+    private authService: AuthService
+  ) {
+    this.username = localStorage.getItem('currentUser') ?? '';
+  }
 
   ngOnInit() {
     this.petService.getPets().subscribe((data) => {
@@ -46,6 +55,13 @@ export class PetsTableComponent implements OnInit {
       }
 
       return this.sortOrder.ascending ? comparison : -comparison;
+    });
+  }
+
+  onLogout() {
+    this.authService.logout().subscribe(() => {
+      localStorage.removeItem('currentUser');
+      this.router.navigate(['/login']);
     });
   }
 }

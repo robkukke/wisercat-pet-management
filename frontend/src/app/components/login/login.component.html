@@ -1,0 +1,84 @@
+<div class="py-5 text-center">
+  <h2>Log in</h2>
+</div>
+
+<div class="col-md-12 order-md-1">
+  <form
+    #login="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="needs-validation"
+    novalidate
+  >
+    <div class="mb-3 form-group">
+      <label class="mb-2" for="usernameInput"
+        >Username <span class="text-danger">*</span></label
+      >
+      <div class="input-group">
+        <input
+          #usernameInput="ngModel"
+          [(ngModel)]="username"
+          class="form-control"
+          id="usernameInput"
+          name="usernameInput"
+          placeholder="Username"
+          required
+          type="text"
+        />
+      </div>
+    </div>
+
+    <div
+      *ngIf="
+        usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="usernameInput.errors?.['required']">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="mb-3 form-group">
+      <label class="mb-2" for="passwordInput"
+        >Password <span class="text-danger">*</span></label
+      >
+      <div class="input-group">
+        <input
+          #passwordInput="ngModel"
+          [(ngModel)]="password"
+          class="form-control"
+          id="passwordInput"
+          name="passwordInput"
+          placeholder="Password"
+          required
+          type="password"
+        />
+      </div>
+    </div>
+
+    <div
+      *ngIf="
+        passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div *ngIf="passwordInput.errors?.['required']">
+        Password is required.
+      </div>
+    </div>
+
+    <div *ngIf="loginFailed" class="alert alert-danger">
+      Invalid username or password.
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+      <button
+        [disabled]="!login.form.valid"
+        class="btn btn-primary btn-lg"
+        type="submit"
+      >
+        Log in
+      </button>
+    </div>
+  </form>
+</div>

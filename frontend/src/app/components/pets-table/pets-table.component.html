@@ -3,17 +3,18 @@
 </div>
 
 <div class="row justify-content-md-center">
-  <div class="mb-5 col-md-auto">
-    <a routerLink="/add" class="btn btn-primary">Add Pet</a>
+  <div class="d-grid mb-5 gap-2 d-md-flex justify-content-md-center">
+    <a class="btn btn-primary" routerLink="/add">Add pet</a>
+    <button (click)="onLogout()" class="btn btn-secondary">Log out</button>
   </div>
   <table class="table">
     <thead>
       <tr>
         <th
-          scope="col"
-          role="button"
-          *ngFor="let header of headers"
           (click)="sort(header)"
+          *ngFor="let header of headers"
+          role="button"
+          scope="col"
         >
           {{ header === "ID" ? "#" : header }}
         </th>
@@ -22,7 +23,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let pet of petsToShow">
-        <th scope="row" class="align-middle">{{ pets.indexOf(pet) + 1 }}</th>
+        <th class="align-middle" scope="row">{{ pets.indexOf(pet) + 1 }}</th>
         <td class="align-middle">{{ pet.name }}</td>
         <td class="align-middle">{{ pet.code }}</td>
         <td class="align-middle">{{ pet.type }}</td>

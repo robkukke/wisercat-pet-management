@@ -5,4 +5,5 @@ export class Pet {
   type!: string;
   furColor!: string;
   country!: string;
+  username!: string;
 }

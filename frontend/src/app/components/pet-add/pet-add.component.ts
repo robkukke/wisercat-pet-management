@@ -32,6 +32,7 @@ export class PetAddComponent implements OnInit {
   }
 
   onSubmit() {
+    this.pet.username = localStorage.getItem('currentUser') ?? '';
     this.petService
       .savePet(this.pet)
       .subscribe((result) => this.gotoPetsTable());

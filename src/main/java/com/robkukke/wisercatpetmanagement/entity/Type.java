@@ -3,12 +3,15 @@ package com.robkukke.wisercatpetmanagement.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "type")
 public class Type {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
     public Long getId() {

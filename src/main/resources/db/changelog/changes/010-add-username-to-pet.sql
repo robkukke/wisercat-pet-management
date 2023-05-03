@@ -1,0 +1,1 @@
+ALTER TABLE pet ADD username VARCHAR(100);

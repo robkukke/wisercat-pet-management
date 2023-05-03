@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FurColor } from '../models/furcolor';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { FurColor } from '../models/furcolor';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FurColorService {
-  private furColorsUrl: string;
+  private readonly baseUrl = environment.backendUrl + '/api/data';
 
   constructor(private http: HttpClient) {
-    this.furColorsUrl = 'http://localhost:8080/furcolors';
   }
 
   public getFurColors(): Observable<FurColor[]> {
-    return this.http.get<FurColor[]>(this.furColorsUrl);
+    const url = this.baseUrl + '/furcolors';
+    return this.http.get<FurColor[]>(url);
   }
 }
