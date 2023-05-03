@@ -9,24 +9,28 @@
   * Resources:
     * https://medium.com/javarevisited/getting-started-with-spring-boot-and-liquibase-f559d4e38498
     * https://www.baeldung.com/spring-boot-angular-web
+
 * User is displayed a list of pets that the user has entered. :white_check_mark:
   * :alarm_clock: Done during the first task.
   * Comments and thoughts:
     * Done during the first task.
   * Resources:
     * Same as the first task.
+
 * User can add pets. :white_check_mark:
   * :alarm_clock: Done during the first task.
   * Comments and thoughts:
     * Done during the first task.
   * Resources:
     * Same as the first task.
+
 * A pet has a name, an identification code, a type (Cat, Dog, etc.) and a fur color. :white_check_mark:
   * :alarm_clock: Done during the first task.
   * Comments and thoughts:
     * Done during the first task.
   * Resources:
     * Same as the first task.
+
 * When a new pet is saved, validate all mandatory fields. :white_check_mark:
   * :alarm_clock: 1h
   * Comments and thoughts:
@@ -35,6 +39,7 @@
     * Used the `ngIf` directive to display error messages.
   * Resources:
     * https://angular.io/guide/form-validation
+
 * Store all input data to database. :white_check_mark:
   * :alarm_clock: Done during the first task.
   * Comments and thoughts:
@@ -43,6 +48,7 @@
   * Resources:
     * Same as the first task.
     * https://stackoverflow.com/a/71980879
+
 * Values of select lists have to be populated with data from database. :white_check_mark:
   * :alarm_clock: 1-2h
   * Comments and thoughts:
@@ -58,6 +64,7 @@
     * Similar to adding pets, but the fields are already pre-filled with data from the database and saving updates the data in the database.
   * Resources:
     * None.
+
 * Log in with one of the created user accounts (registration does not have to be implemented). :white_check_mark:
   * :alarm_clock: 4-5h
   * Comments and thoughts:
@@ -65,6 +72,7 @@
   * Resources:
     * https://martinelli.ch/angular-15-spring-boot-3-and-jwt/
     * https://docs.spring.io/spring-security/reference/servlet/configuration/java.html
+
 * Create 3 user accounts into the database (username and password). :white_check_mark:
   * :alarm_clock: 10 min
   * Comments and thoughts:
@@ -74,6 +82,7 @@
     * Account 3: `userthree:userthree`.
   * Resources:
     * None.
+
 * User is not allowed to see other user's pets. :white_check_mark:
   * :alarm_clock: 30 min
   * Comments and thoughts:
@@ -82,6 +91,7 @@
     * If an user tries to access someone else's pet via URL, they will be redirected to the pets list.
   * Resources:
     * None.
+
 * User can sort pets by all columns in the table. :white_check_mark:
   * :alarm_clock: 1-2h
   * Comments and thoughts:
@@ -89,12 +99,14 @@
     * Finding the correct algorithm and getting it to work took some time.
   * Resources:
     * https://stackoverflow.com/a/63639729
+
 * A pet has a country of origin. :white_check_mark:
   * :alarm_clock: Done during the first task.
   * Comments and thought:
     * Done during the first task.
   * Resources:
     * Same as the first task.
+
 * Validate form fields both inline and in the back-end. :white_check_mark:
   * :alarm_clock: 30 min
   * Comments and thoughts:
@@ -106,18 +118,25 @@
 * Application has to run with 1 click or command. If front- and back-end are in different projects, then 1 click/command per project.
   * Spring Boot project: run `mvnw spring-boot:run` in the root directory.
   * Angular project: run `cd frontend & ng serve --open` in the root directory.
+
 * Use Spring Boot.
   * Version: `3.0.6`.
+
 * Embed a H2 database into the application.
   * Version: `latest from maven repository`.
+
 * Use Liquibase as a database migration tool, execute SQL scripts on app startup.
   * Version: `latest from maven repository`.
+
 * Use Angular for front-end.
   * Version: `15.2.0`.
+
 * Use Bootstrap for design and styling. Do not use multiple CSS libraries.
   * Version: `5.3.0-alpha3`.
+
 * Use latest versions of all used technologies.
   * Java version: `20.0.1`.
   * Node version: `18.16.0`.
   * npm version: `9.6.5`.
+
 * API has to be RESTful.
