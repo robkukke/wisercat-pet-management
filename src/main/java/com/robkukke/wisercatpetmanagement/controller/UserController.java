@@ -15,6 +15,7 @@ public class UserController {
     @Autowired
     private UserRepositry userRepositry;
 
+    // Handle log in
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
         User foundUser = userRepositry.findByUsername(user.getUsername());
@@ -24,6 +25,7 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    // Handle log out
     @PostMapping("/logout")
     public ResponseEntity<?> logout() {
         return ResponseEntity.ok().build();

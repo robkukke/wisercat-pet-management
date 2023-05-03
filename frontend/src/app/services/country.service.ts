@@ -13,6 +13,7 @@ export class CountryService {
   constructor(private http: HttpClient) {
   }
 
+  // Handle countries of origin fetch from database
   public getCountries(): Observable<Country[]> {
     const url = this.baseUrl + '/countries';
     return this.http.get<Country[]>(url);

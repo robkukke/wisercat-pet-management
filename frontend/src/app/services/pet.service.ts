@@ -13,6 +13,7 @@ export class PetService {
   constructor(private http: HttpClient) {
   }
 
+  // Handle logged in user's pets fetch from database
   public getPets(): Observable<Pet[]> {
     const url = this.baseUrl + '/pets';
     const currentUser = localStorage.getItem('currentUser') ?? '';
@@ -21,16 +22,19 @@ export class PetService {
     return this.http.get<Pet[]>(url, { headers, params });
   }
 
+  // Handle individual pet fetch from database
   public getPet(id: number): Observable<Pet> {
     const url = this.baseUrl + `/pets/${ id }`;
     return this.http.get<Pet>(url);
   }
 
+  // Handle pet adding to database
   public savePet(pet: Pet) {
     const url = this.baseUrl + '/pets';
     return this.http.post<Pet>(url, pet);
   }
 
+  // Handle pet editing
   public editPet(id: number, value: any) {
     const url = this.baseUrl + `/pets/${ id }`;
     return this.http.put<Pet>(url, value);

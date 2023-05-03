@@ -8,6 +8,7 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router, private authService: AuthService) {
   }
 
+  // Handle log in check, show log in form if user is not logged in
   canActivate() {
     if (this.authService.isLoggedIn()) {
       return true;

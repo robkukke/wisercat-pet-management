@@ -17,6 +17,7 @@ public class CountryController {
     @Autowired
     private CountryRepository countryRepository;
 
+    // Handle countries of origin fetch from database
     @GetMapping("/countries")
     public ResponseEntity<List<Country>> getCountries() {
         List<Country> countries = countryRepository.findAll();

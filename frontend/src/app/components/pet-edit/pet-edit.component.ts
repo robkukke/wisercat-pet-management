@@ -32,35 +32,44 @@ export class PetEditComponent implements OnInit {
     this.pet = new Pet();
   }
 
+  // Handle pet edit form submit
   onSubmit() {
     this.petService
       .editPet(this.id, this.pet)
       .subscribe((result) => this.gotoPetsTable());
   }
 
+  // Navigate to pets list
   gotoPetsTable() {
     this.router.navigate(['/pets']);
   }
 
   ngOnInit() {
+    // Get pet id from route
     this.id = this.route.snapshot.params['id'];
+    // Get the logged in user's username from Local Storage
     const currentUser = localStorage.getItem('currentUser') ?? '';
 
+    // Get pet from database with matching id
     this.petService.getPet(this.id).subscribe((data) => {
       this.pet = data;
+      // Navigate to pets list if an user tries to edit a pet that is not theirs
       if (this.pet.username !== currentUser) {
         this.router.navigate(['/pets']);
       }
     });
 
+    // Get pet types from database and set select options
     this.typeService.getTypes().subscribe((data) => {
       this.petTypes = data;
     });
 
+    // Get pet fur colors from database and set select options
     this.furColorService.getFurColors().subscribe((data) => {
       this.petFurColors = data;
     });
 
+    // Get pet countries of origin from database and set select options
     this.countryService.getCountries().subscribe((data) => {
       this.petCountries = data;
     });

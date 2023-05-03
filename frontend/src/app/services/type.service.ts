@@ -13,6 +13,7 @@ export class TypeService {
   constructor(private http: HttpClient) {
   }
 
+  // Handle types fetch from database
   public getTypes(): Observable<Type[]> {
     const url = this.baseUrl + '/types';
     return this.http.get<Type[]>(url);

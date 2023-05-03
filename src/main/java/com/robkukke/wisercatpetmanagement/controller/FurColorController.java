@@ -17,6 +17,7 @@ public class FurColorController {
     @Autowired
     private FurColorRepository furColorRepository;
 
+    // Handle fur colors fetch from database
     @GetMapping("/furcolors")
     public ResponseEntity<List<FurColor>> getFurColors() {
         List<FurColor> furColors = furColorRepository.findAll();

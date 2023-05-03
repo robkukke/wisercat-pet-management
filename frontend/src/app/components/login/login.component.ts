@@ -18,11 +18,15 @@ export class LoginComponent {
   ) {
   }
 
+  // Handle login form submit
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe(() => {
+      // Store the logged in user's username in Local Storage
       localStorage.setItem('currentUser', this.username);
+      // Navigate to pets list
       this.router.navigate(['/pets']);
     }, () => {
+      // Flag to show login submit error field if verification fails
       this.loginFailed = true;
     });
   }

@@ -25,13 +25,16 @@ export class PetsTableComponent implements OnInit {
   }
 
   ngOnInit() {
+    // Get pets from database and display in table
     this.petService.getPets().subscribe((data) => {
       this.pets = data;
       this.petsToShow = [...this.pets];
     });
   }
 
+  // Handle column sorting
   sort(column: string) {
+    // Convert column header to camelCase key
     const key = column
       .toLowerCase()
       .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase()) as keyof Pet;
@@ -58,8 +61,10 @@ export class PetsTableComponent implements OnInit {
     });
   }
 
+  // Handle log out
   onLogout() {
     this.authService.logout().subscribe(() => {
+      // Remove user's username from Local Storage and navigate to log in form
       localStorage.removeItem('currentUser');
       this.router.navigate(['/login']);
     });
