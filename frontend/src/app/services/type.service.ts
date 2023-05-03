@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Type } from '../models/type';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Type } from '../models/type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TypeService {
-  private typesUrl: string;
+  private readonly baseUrl = environment.backendUrl + '/api/data';
 
   constructor(private http: HttpClient) {
-    this.typesUrl = 'http://localhost:8080/types';
   }
 
   public getTypes(): Observable<Type[]> {
-    return this.http.get<Type[]>(this.typesUrl);
+    const url = this.baseUrl + '/types';
+    return this.http.get<Type[]>(url);
   }
 }

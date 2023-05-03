@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Country } from '../models/country';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Country } from '../models/country';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CountryService {
-  private countriesUrl: string;
+  private readonly baseUrl = environment.backendUrl + '/api/data';
 
   constructor(private http: HttpClient) {
-    this.countriesUrl = 'http://localhost:8080/countries';
   }
 
   public getCountries(): Observable<Country[]> {
-    return this.http.get<Country[]>(this.countriesUrl);
+    const url = this.baseUrl + '/countries';
+    return this.http.get<Country[]>(url);
   }
 }

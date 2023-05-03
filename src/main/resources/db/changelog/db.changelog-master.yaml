@@ -17,3 +17,5 @@ databaseChangeLog:
       file: classpath:/db/changelog/changes/008-user-schema.sql
   - include:
       file: classpath:/db/changelog/changes/009-user-values.sql
+  - include:
+      file: classpath:/db/changelog/changes/010-add-username-to-pet.sql
