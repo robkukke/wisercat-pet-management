@@ -117,7 +117,7 @@
 ## Technical requirements:
 * Application has to run with 1 click or command. If front- and back-end are in different projects, then 1 click/command per project.
   * Spring Boot project: run `mvnw spring-boot:run` in the root directory.
-  * Angular project: run `cd frontend & ng serve --open` in the root directory.
+  * Angular project: run `npm i & ng serve --open` in the frontend directory.
 
 * Use Spring Boot.
   * Version: `3.0.6`.
